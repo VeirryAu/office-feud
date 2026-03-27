@@ -52,7 +52,7 @@
         <p id="r1-team-info"></p>
         <p id="r1-question" class="question"></p>
         <div class="row timer-row">
-          <span id="r1-timer-display" class="timer">100</span>
+          <span id="r1-timer-display" class="timer">60</span>
           <button type="button" id="r1-start">Start</button>
           <button type="button" id="r1-pause">Pause</button>
           <button type="button" id="r1-reset">Reset timer</button>
@@ -65,7 +65,7 @@
           <button type="button" id="r1-strike" class="strike-btn">Mistake / Strike (X)</button>
           <button type="button" id="r1-finalize">Finish this team’s turn</button>
         </div>
-        <p class="muted">Give up unlocks when ≤50s remain and at least one answer is revealed. Maximum 3 mistakes per turn.</p>
+        <p class="muted">Give up unlocks when half the round time or less remains and at least one answer is revealed. Maximum 3 mistakes per turn.</p>
       </section>
 
       <section id="panel-leaderboard" class="panel hidden">
@@ -82,6 +82,8 @@
 
         <div id="r2-faceoff" class="block">
           <h3>Face-off</h3>
+          <p class="muted">Reveal answers on the board (no bank yet), then press the team that won the face-off.</p>
+          <ul id="r2-face-answers" class="answer-admin"></ul>
           <p class="muted">Who guessed the highest answer?</p>
           <div class="row">
             <button type="button" id="r2-face-a"></button>

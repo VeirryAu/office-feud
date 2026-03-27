@@ -2,6 +2,7 @@ import {
   mergeState,
   defaultState,
   round1Set,
+  R1_DURATION,
   R1_MAX_STRIKES,
 } from './state.js';
 import { loadState, subscribeStorage } from './storage.js';
@@ -146,7 +147,7 @@ function renderRound1Board() {
   const t = state.teams[state.round1.activeTeamIndex];
   $('pub-r1-team').textContent = t ? `${t.label}` : '';
   $('pub-r1-q').textContent = set?.question ?? '';
-  const pct = (state.round1.timerRemaining / 100) * 100;
+  const pct = (state.round1.timerRemaining / R1_DURATION) * 100;
   $('pub-r1-bar').style.width = `${pct}%`;
   $('pub-r1-clock').textContent = String(state.round1.timerRemaining);
   $('pub-r1-clock').classList.toggle('urgent', state.round1.timerRemaining <= 10);

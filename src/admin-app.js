@@ -10,6 +10,7 @@ import {
   round1AllRevealed,
   topTwoTeamIndices,
   R1_DURATION,
+  R1_TIME_BONUS_MAX,
   R1_MAX_STRIKES,
   defaultRound1,
   defaultRound2,
@@ -146,12 +147,12 @@ function renderRound1 () {
     !state.round1.gaveUp &&
       round1AllRevealed(state) &&
       state.round1.timerRemaining > 0
-      ? Math.min(50, state.round1.timerRemaining)
+      ? Math.min(R1_TIME_BONUS_MAX, state.round1.timerRemaining)
       : 0;
   elPrev.textContent = `Running total: ${base} pts${bonus ? ` + time bonus up to ${bonus}` : ''}`;
 
   const giveUpOk =
-    state.round1.timerRemaining <= 50 &&
+    state.round1.timerRemaining <= R1_DURATION / 2 &&
     state.round1.revealed.some(Boolean) &&
     !state.round1.gaveUp;
   $('r1-giveup').disabled = !giveUpOk;
@@ -178,6 +179,9 @@ function renderRound1 () {
     btn.onclick = () => {
       const i = Number(btn.dataset.i);
       state.round1.revealed[i] = !state.round1.revealed[i];
+      if (round1AllRevealed(state)) {
+        stopR1Timer();
+      }
       persist();
       render();
     };
@@ -252,28 +256,48 @@ function renderRound2 () {
     $('r2-strike').disabled = sub !== 'play';
   }
 
-  const list = $('r2-answers');
-  list.innerHTML = '';
-  q.answers.forEach((a, i) => {
-    const li = document.createElement('li');
-    const revealed = state.round2.revealed[i];
-    const canToggle = sub === 'play' && !revealed;
-    li.innerHTML = `<button type="button" class="toggle ${revealed ? 'on' : ''}" data-i="${i}" ${canToggle ? '' : 'disabled'}>
+  const listFace = $('r2-face-answers');
+  const listPlay = $('r2-answers');
+
+  function bindR2Answers (list, mode) {
+    if (!list) return;
+    list.innerHTML = '';
+    q.answers.forEach((a, i) => {
+      const li = document.createElement('li');
+      const revealed = state.round2.revealed[i];
+      const canToggle =
+        !revealed &&
+        (mode === 'faceoff' || (mode === 'board' && sub === 'play'));
+      li.innerHTML = `<button type="button" class="toggle ${revealed ? 'on' : ''}" data-i="${i}" ${canToggle ? '' : 'disabled'}>
       <span class="ans-line">${a.text} — ${a.points}</span>
       <span class="proj-hint">${revealed ? 'On projector' : 'Off projector'}${canToggle ? ' (click to reveal)' : ''}</span>
     </button>`;
-    list.appendChild(li);
-  });
-  list.querySelectorAll('button[data-i]:not([disabled])').forEach((btn) => {
-    btn.onclick = () => {
-      const i = Number(btn.dataset.i);
-      if (state.round2.revealed[i]) return;
-      state.round2.revealed[i] = true;
-      state.round2.bank += q.answers[i].points;
-      persist();
-      render();
-    };
-  });
+      list.appendChild(li);
+    });
+    list.querySelectorAll('button[data-i]:not([disabled])').forEach((btn) => {
+      btn.onclick = () => {
+        const i = Number(btn.dataset.i);
+        if (state.round2.revealed[i]) return;
+        state.round2.revealed[i] = true;
+        if (mode === 'board' && sub === 'play') {
+          state.round2.bank += q.answers[i].points;
+        }
+        persist();
+        render();
+      };
+    });
+  }
+
+  if (sub === 'faceoff') {
+    bindR2Answers(listFace, 'faceoff');
+    if (listPlay) listPlay.innerHTML = '';
+  } else if (sub === 'play' || sub === 'steal') {
+    if (listFace) listFace.innerHTML = '';
+    bindR2Answers(listPlay, 'board');
+  } else {
+    if (listFace) listFace.innerHTML = '';
+    if (listPlay) listPlay.innerHTML = '';
+  }
 }
 
 function initRound2State () {
@@ -292,7 +316,7 @@ function finalizeR1Turn () {
     !state.round1.gaveUp &&
       round1AllRevealed(state) &&
       state.round1.timerRemaining > 0
-      ? Math.min(50, state.round1.timerRemaining)
+      ? Math.min(R1_TIME_BONUS_MAX, state.round1.timerRemaining)
       : 0;
   const add = base + bonus;
   state.teams = state.teams.map((t, i) =>

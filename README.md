@@ -14,17 +14,17 @@ Using persistent storage in browser.
 
 ### Round 1: Score Gathering
 * **Structure:** 6 teams play sequentially. Each team gets 1 unique set of questions (6 sets total). Each set contains answers totaling exactly 100 base points.
-* **Timer:** 100-second countdown timer per team.
+* **Timer:** 60-second countdown timer per team.
 * **Scoring:** Points are awarded for correct answers.
-* **Time Bonus:** If a team clears the board before time runs out, the remaining seconds are converted into bonus points (Max 50 points bonus).
+* **Time Bonus:** If a team clears the board before time runs out, the remaining seconds are converted into bonus points (max 30 points). The timer stops automatically when the board is cleared so the bonus is preserved until you finish the turn.
 * **Give Up Condition:** A "Give Up" button becomes active **only if**:
-  1. The timer has reached at least 50 seconds (<= 50s remaining).
+  1. Half the round time or less remains on the clock (e.g. ≤30s on a 60s timer).
   2. The team has successfully revealed at least 1 answer.
 * **Maximum mistakes:** Each team may accumulate at most **3** mistakes (wrong guesses) during their Round 1 turn.
 
 ### Round 2: Final Round (Top 2 Teams)
-* **Structure:** The top 2 teams on the leaderboard advance to the Final Round. 1 single set of questions is used (total 100 points).
-* **Face-off:** Representatives from both teams try to guess the highest-scoring answer. The team that guesses the highest answer wins control of the board.
+* **Structure:** The top 2 teams on the leaderboard advance to the Final Round. 1 single set of questions is used (total 60 points).
+* **Face-off:** On the admin screen, reveal answers as needed (they appear on the public board without adding to the bank), then select which team won the face-off. The winning team gets control of the board.
 * **Control Phase:** The controlling team attempts to guess the remaining answers on the board.
 * **Mistakes (Strikes):** If the controlling team guesses incorrectly, they get a "Strike." Accumulating 3 strikes triggers a "Steal" opportunity.
 * **Steal Phase:** Control throws to the opposing team. If the opposing team guesses *any* of the remaining answers correctly, they steal the total points accumulated in the bank for that round. If they fail, the original controlling team keeps the banked points.
@@ -44,7 +44,7 @@ This view is displayed to the audience and listens to state changes from the Adm
 * **Visuals:** Highly visual, animated interface mirroring classic TV game shows.
 * **Leaderboard (Classement):** Real-time ranking of all 6 teams.
 * **Game Board:** Hidden panels that flip/animate to reveal answers and points.
-* **Timer:** Animated progress bar or large digital clock for the 100-second countdown.
+* **Timer:** Animated progress bar or large digital clock for the 60-second countdown.
 * **Strike Animation:** Massive red "X" overlays that appear on screen when triggered by the admin.
 * **Final Score:** End-of-game celebration animation showing the final winning team.
 

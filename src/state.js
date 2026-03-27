@@ -1,4 +1,6 @@
-export const R1_DURATION = 100;
+export const R1_DURATION = 60;
+/** Max points from remaining seconds when the board is cleared (Round 1). */
+export const R1_TIME_BONUS_MAX = 30;
 export const R1_MAX_STRIKES = 3;
 export const PARTICIPANT_COUNT = 42;
 export const TEAM_COUNT = 6;
@@ -116,7 +118,7 @@ export function round1AllRevealed(state) {
 
 export function round1TimeBonus(state) {
   if (!round1AllRevealed(state)) return 0;
-  return Math.min(50, state.round1.timerRemaining);
+  return Math.min(R1_TIME_BONUS_MAX, state.round1.timerRemaining);
 }
 
 export function topTwoTeamIndices(teams) {
