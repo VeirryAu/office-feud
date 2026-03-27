@@ -20,6 +20,22 @@ let lastR1RevealKey = '';
 let lastR2RevealKey = '';
 let prevR1Timer = null;
 
+/** Avoid re-running flip CSS on every re-render (e.g. timer ticks). */
+let r1FlipBoardKey = '';
+let r1PrevRevealed = null;
+let r2FlipBoardKey = '';
+let r2PrevRevealed = null;
+
+function r1BoardKeyForFlip() {
+  const set = round1Set(state);
+  if (!set) return '';
+  return `${state.round1.activeTeamIndex}:${set.answers.length}`;
+}
+
+function r2BoardKeyForFlip() {
+  return state.phase === 'round2' ? 'round2' : '';
+}
+
 function $(id) {
   return document.getElementById(id);
 }
@@ -147,10 +163,19 @@ function renderRound1Board() {
   }
 
   if (!set || !grid) return;
+
+  const flipKey = r1BoardKeyForFlip();
+  if (flipKey !== r1FlipBoardKey) {
+    r1FlipBoardKey = flipKey;
+    r1PrevRevealed = null;
+  }
+
   grid.innerHTML = set.answers
     .map((a, i) => {
       const rev = Boolean(state.round1.revealed[i]);
-      return `<div class="cell ${rev ? 'revealed flip' : ''}">
+      const wasRev = r1PrevRevealed ? Boolean(r1PrevRevealed[i]) : rev;
+      const flip = rev && !wasRev;
+      return `<div class="cell ${rev ? `revealed${flip ? ' flip' : ''}` : ''}">
         <div class="cell-inner">
           <span class="num">${i + 1}</span>
           <span class="txt">${rev ? a.text : '???'}</span>
@@ -159,6 +184,8 @@ function renderRound1Board() {
       </div>`;
     })
     .join('');
+
+  r1PrevRevealed = state.round1.revealed.map(Boolean);
 }
 
 function renderRound2Board() {
@@ -189,10 +216,19 @@ function renderRound2Board() {
     .join('');
 
   if (!q || !grid) return;
+
+  const flipKey = r2BoardKeyForFlip();
+  if (flipKey !== r2FlipBoardKey) {
+    r2FlipBoardKey = flipKey;
+    r2PrevRevealed = null;
+  }
+
   grid.innerHTML = q.answers
     .map((a, i) => {
-      const rev = state.round2.revealed[i];
-      return `<div class="cell ${rev ? 'revealed flip' : ''}">
+      const rev = Boolean(state.round2.revealed[i]);
+      const wasRev = r2PrevRevealed ? Boolean(r2PrevRevealed[i]) : rev;
+      const flip = rev && !wasRev;
+      return `<div class="cell ${rev ? `revealed${flip ? ' flip' : ''}` : ''}">
         <div class="cell-inner">
           <span class="num">${i + 1}</span>
           <span class="txt">${rev ? a.text : '???'}</span>
@@ -201,6 +237,8 @@ function renderRound2Board() {
       </div>`;
     })
     .join('');
+
+  r2PrevRevealed = state.round2.revealed.map(Boolean);
 }
 
 function renderWinner() {
