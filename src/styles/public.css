@@ -1,0 +1,468 @@
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  font-family: 'Outfit', system-ui, sans-serif;
+  background: radial-gradient(ellipse 120% 80% at 50% 0%, #1e3a5f 0%, #0a0e14 55%, #05070a 100%);
+  color: #f0f4fc;
+  overflow-x: hidden;
+}
+
+.screen {
+  min-height: 100vh;
+  padding: 1.5rem 2rem;
+}
+
+.screen.hidden {
+  display: none;
+}
+
+.strike-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(180, 20, 20, 0.45);
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.12s ease;
+}
+
+.strike-overlay.show {
+  opacity: 1;
+}
+
+.strike-x {
+  font-family: 'Bebas Neue', Impact, sans-serif;
+  font-size: min(40vw, 28rem);
+  line-height: 1;
+  color: #ff2a2a;
+  text-shadow:
+    0 0 20px #ff0000,
+    4px 4px 0 #8b0000;
+  transform: scale(0.3);
+  animation: strikePop 0.85s ease-out forwards;
+}
+
+@keyframes strikePop {
+  40% {
+    transform: scale(1.15) rotate(-4deg);
+  }
+  100% {
+    transform: scale(1) rotate(0deg);
+  }
+}
+
+.logo-wrap {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 85vh;
+  text-align: center;
+}
+
+.logo {
+  font-family: 'Bebas Neue', Impact, sans-serif;
+  font-size: clamp(4rem, 14vw, 10rem);
+  margin: 0;
+  letter-spacing: 0.06em;
+  background: linear-gradient(180deg, #ffe566 0%, #f4a00a 45%, #c97800 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  filter: drop-shadow(0 4px 24px rgba(244, 192, 37, 0.45));
+}
+
+.logo.small {
+  font-size: clamp(2.5rem, 8vw, 5rem);
+  margin-bottom: 1rem;
+}
+
+.tagline {
+  font-size: clamp(1rem, 2.5vw, 1.5rem);
+  color: #8fb8e8;
+  margin: 0.5rem 0 0;
+}
+
+.setup-screen {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-bottom: 2rem;
+}
+
+.setup-logo.compact {
+  min-height: auto;
+  padding: 1rem 0 0.5rem;
+}
+
+.setup-logo.compact .logo {
+  font-size: clamp(2.5rem, 8vw, 5rem);
+}
+
+.setup-logo.compact .tagline {
+  font-size: clamp(0.85rem, 2vw, 1.1rem);
+}
+
+.setup-teams-heading {
+  font-family: 'Bebas Neue', Impact, sans-serif;
+  font-size: clamp(1.5rem, 4vw, 2.5rem);
+  letter-spacing: 0.06em;
+  color: #f4c025;
+  margin: 0 0 0.75rem;
+  text-align: center;
+}
+
+.setup-teams-grid {
+  width: 100%;
+  max-width: 72rem;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 0.75rem 1rem;
+  margin: 0;
+  padding: 0 0.5rem;
+}
+
+@media (max-width: 900px) {
+  .setup-teams-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 520px) {
+  .setup-teams-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.setup-team-card {
+  background: rgba(0, 0, 0, 0.35);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 12px;
+  padding: 0.65rem 0.85rem;
+  text-align: left;
+}
+
+.setup-team-name {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: clamp(1.1rem, 2.2vw, 1.45rem);
+  margin: 0 0 0.4rem;
+  color: #7cb7ff;
+  letter-spacing: 0.04em;
+}
+
+.setup-team-list {
+  margin: 0;
+  padding: 0 0 0 1.1rem;
+  font-size: clamp(0.75rem, 1.35vw, 0.95rem);
+  line-height: 1.35;
+  color: #e2e8f4;
+}
+
+/* Use :not(.hidden) so display:grid does not override .screen.hidden (ID beats 2 classes). */
+#view-round1:not(.hidden),
+#view-round2:not(.hidden) {
+  display: grid;
+  grid-template-columns: minmax(14rem, 18vw) 1fr;
+  gap: 1.5rem;
+  align-items: start;
+}
+
+@media (max-width: 900px) {
+  #view-round1:not(.hidden),
+  #view-round2:not(.hidden) {
+    grid-template-columns: 1fr;
+  }
+}
+
+.side-rank {
+  background: rgba(0, 0, 0, 0.35);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 12px;
+  padding: 1rem;
+}
+
+.side-rank h2 {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 1.5rem;
+  margin: 0 0 0.75rem;
+  letter-spacing: 0.04em;
+  color: #f4c025;
+}
+
+.side-rank ol {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  font-size: 0.9rem;
+}
+
+.side-rank li {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.35rem 0.75rem;
+  align-items: baseline;
+  margin-bottom: 0.35rem;
+}
+
+.side-rank .lb-rank {
+  font-size: 1.05rem;
+  min-width: 1.15rem;
+  color: #f4c025;
+  font-family: 'Bebas Neue', sans-serif;
+}
+
+.lb-name {
+  font-weight: 600;
+}
+
+.lb-pts {
+  color: #f4c025;
+  margin-left: 0.35rem;
+}
+
+.main-board {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.current-team {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: clamp(1.5rem, 4vw, 2.5rem);
+  margin: 0;
+  color: #7cb7ff;
+  letter-spacing: 0.04em;
+}
+
+.big-q {
+  font-size: clamp(1.25rem, 3.2vw, 2rem);
+  font-weight: 600;
+  line-height: 1.25;
+  margin: 0;
+  max-width: 48rem;
+}
+
+.timer-bar-wrap {
+  height: 12px;
+  background: rgba(0, 0, 0, 0.4);
+  border-radius: 999px;
+  overflow: hidden;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  max-width: 36rem;
+}
+
+.timer-bar {
+  height: 100%;
+  width: 100%;
+  background: linear-gradient(90deg, #2d8a4e, #f4c025);
+  border-radius: 999px;
+  transition: width 0.35s linear;
+}
+
+.clock {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: clamp(3rem, 10vw, 6rem);
+  color: #f4f025;
+  font-variant-numeric: tabular-nums;
+  line-height: 1;
+}
+
+.clock.urgent {
+  color: #ff6b4a;
+  animation: pulse 0.6s ease-in-out infinite alternate;
+}
+
+@keyframes pulse {
+  from {
+    opacity: 1;
+    transform: scale(1);
+  }
+  to {
+    opacity: 0.85;
+    transform: scale(1.04);
+  }
+}
+
+.answer-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(14rem, 1fr));
+  gap: 0.75rem;
+  max-width: 56rem;
+}
+
+.cell {
+  perspective: 800px;
+  min-height: 5.5rem;
+}
+
+.cell-inner {
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.75rem 1rem;
+  background: linear-gradient(145deg, #1a2744, #0f1724);
+  border: 2px solid rgba(244, 192, 37, 0.35);
+  border-radius: 10px;
+  min-height: 5.5rem;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.35);
+  transition:
+    transform 0.45s ease,
+    border-color 0.3s;
+}
+
+.cell.revealed .cell-inner {
+  border-color: #4ade80;
+  background: linear-gradient(145deg, #14332a, #0f1724);
+}
+
+.cell.flip .cell-inner {
+  animation: flipIn 0.55s ease;
+}
+
+@keyframes flipIn {
+  from {
+    transform: rotateX(-90deg);
+    opacity: 0.5;
+  }
+  to {
+    transform: rotateX(0);
+    opacity: 1;
+  }
+}
+
+.cell .num {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 1.75rem;
+  color: #f4c025;
+  opacity: 0.9;
+}
+
+.cell .txt {
+  font-weight: 600;
+  font-size: clamp(0.95rem, 1.8vw, 1.15rem);
+}
+
+.cell .pts {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 1.5rem;
+  color: #86efac;
+}
+
+.lb-big {
+  list-style: none;
+  padding: 0;
+  margin: 0 auto;
+  max-width: 40rem;
+}
+
+.lb-rank {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 1.5rem;
+  color: #f4c025;
+}
+
+.lb-big li {
+  display: grid;
+  grid-template-columns: 2.5rem 1fr auto;
+  gap: 1rem;
+  align-items: baseline;
+  padding: 0.85rem 1rem;
+  margin-bottom: 0.5rem;
+  background: rgba(0, 0, 0, 0.3);
+  border-radius: 10px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  font-size: clamp(1rem, 2vw, 1.25rem);
+}
+
+.lb-big .lb-members {
+  grid-column: 2 / -1;
+  font-size: 0.85rem;
+  color: #9cb0cc;
+  font-weight: 400;
+}
+
+.phase-label {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: clamp(1.25rem, 3vw, 2rem);
+  color: #f4c025;
+  margin: 0;
+}
+
+.meta {
+  margin: 0;
+  color: #9cb0cc;
+  font-size: 0.95rem;
+}
+
+.strikes-row {
+  display: flex;
+  gap: 1rem;
+}
+
+.strike-dot {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 3rem;
+  color: rgba(255, 255, 255, 0.15);
+  line-height: 1;
+}
+
+.strike-dot.on {
+  color: #ff3b3b;
+  text-shadow: 0 0 12px #f00;
+}
+
+.win-screen:not(.hidden) {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  min-height: 100vh;
+  background: radial-gradient(circle at 50% 40%, #3d2a1a 0%, #0a0e14 70%);
+}
+
+.winner-title {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: clamp(2rem, 6vw, 4rem);
+  color: #f4c025;
+  margin: 0;
+  letter-spacing: 0.08em;
+}
+
+.winner-name {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: clamp(3rem, 12vw, 8rem);
+  margin: 0.5rem 0;
+  background: linear-gradient(180deg, #fff 0%, #f4c025 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  animation: winPop 0.8s ease-out;
+}
+
+.winner-score {
+  font-size: clamp(1.25rem, 3vw, 2rem);
+  color: #9cb0cc;
+  margin: 0;
+}
+
+@keyframes winPop {
+  from {
+    transform: scale(0.5);
+    opacity: 0;
+  }
+  to {
+    transform: scale(1);
+    opacity: 1;
+  }
+}

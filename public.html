@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Office Feud</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Outfit:wght@400;600;800&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="/src/styles/public.css" />
+  </head>
+  <body>
+    <div id="strike-overlay" class="strike-overlay" aria-hidden="true">
+      <span class="strike-x">X</span>
+    </div>
+
+    <div id="view-setup" class="screen setup-screen">
+      <div class="logo-wrap setup-logo">
+        <h1 class="logo">Office Feud</h1>
+        <p class="tagline">Family Feud · Office Edition</p>
+      </div>
+      <p id="pub-setup-heading" class="setup-teams-heading hidden">Tonight’s teams</p>
+      <div id="pub-setup-teams" class="setup-teams-grid hidden" aria-live="polite"></div>
+    </div>
+
+    <div id="view-round1" class="screen hidden">
+      <aside class="side-rank">
+        <h2>Classement</h2>
+        <ol id="pub-lb-r1"></ol>
+      </aside>
+      <div class="main-board">
+        <p id="pub-r1-team" class="current-team"></p>
+        <p id="pub-r1-q" class="big-q"></p>
+        <div class="timer-bar-wrap">
+          <div id="pub-r1-bar" class="timer-bar"></div>
+        </div>
+        <div id="pub-r1-clock" class="clock">100</div>
+        <div id="pub-r1-grid" class="answer-grid"></div>
+      </div>
+    </div>
+
+    <div id="view-lb" class="screen hidden">
+      <h1 class="logo small">Leaderboard</h1>
+      <ol id="pub-lb-full" class="lb-big"></ol>
+    </div>
+
+    <div id="view-round2" class="screen hidden">
+      <aside class="side-rank">
+        <h2>Final</h2>
+        <ol id="pub-lb-r2"></ol>
+      </aside>
+      <div class="main-board">
+        <p id="pub-r2-phase" class="phase-label"></p>
+        <p id="pub-r2-q" class="big-q"></p>
+        <p id="pub-r2-meta" class="meta"></p>
+        <div id="pub-r2-grid" class="answer-grid"></div>
+        <div id="pub-r2-strikes" class="strikes-row"></div>
+      </div>
+    </div>
+
+    <div id="view-win" class="screen hidden win-screen">
+      <h1 class="winner-title">Winner</h1>
+      <p id="pub-winner-name" class="winner-name"></p>
+      <p id="pub-winner-score" class="winner-score"></p>
+    </div>
+
+    <script type="module" src="/src/public-app.js"></script>
+  </body>
+</html>

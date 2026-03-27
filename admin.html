@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Office Feud — Admin</title>
+    <link rel="stylesheet" href="/src/styles/admin.css" />
+  </head>
+  <body>
+    <header class="top">
+      <h1>Office Feud — Control Panel</h1>
+      <p class="hint">
+        Open <a href="/public.html" target="_blank" rel="noopener">Public View</a> on the projector (same origin).
+      </p>
+    </header>
+
+    <nav class="phases" id="phaseNav">
+      <button type="button" data-phase="setup">Setup</button>
+      <button type="button" data-phase="round1">Round 1</button>
+      <button type="button" data-phase="leaderboard">Leaderboard</button>
+      <button type="button" data-phase="round2">Round 2</button>
+      <button type="button" data-phase="winner">Finale</button>
+    </nav>
+
+    <main>
+      <section id="panel-setup" class="panel">
+        <h2>Setup</h2>
+        <label class="block">
+          Participants (42 names, comma or newline separated)
+          <textarea id="participantsInput" rows="4" placeholder="Paste CSV or type names…"></textarea>
+        </label>
+        <div class="row">
+          <button type="button" id="loadExampleParticipants">Load example/participant.csv pattern</button>
+          <button type="button" id="saveParticipants">Save &amp; shuffle teams</button>
+        </div>
+        <p id="participantStatus" class="status"></p>
+        <div id="setupTeamRoster" class="setup-roster hidden" aria-label="Shuffled teams for projector"></div>
+
+        <label class="block">
+          Questions JSON
+          <input type="file" id="questionsFile" accept=".json,application/json" />
+        </label>
+        <p id="questionStatus" class="status"></p>
+
+        <div class="row">
+          <button type="button" id="resetAll" class="danger">Reset all saved game data</button>
+        </div>
+      </section>
+
+      <section id="panel-round1" class="panel hidden">
+        <h2>Round 1</h2>
+        <p id="r1-team-info"></p>
+        <p id="r1-question" class="question"></p>
+        <div class="row timer-row">
+          <span id="r1-timer-display" class="timer">100</span>
+          <button type="button" id="r1-start">Start</button>
+          <button type="button" id="r1-pause">Pause</button>
+          <button type="button" id="r1-reset">Reset timer</button>
+          <button type="button" id="r1-giveup" disabled>Give up</button>
+        </div>
+        <p id="r1-scores-preview" class="muted"></p>
+        <ul id="r1-answers" class="answer-admin"></ul>
+        <div class="row">
+          <button type="button" id="r1-finalize">Finish this team’s turn</button>
+        </div>
+        <p class="muted">Give up unlocks when ≤50s remain and at least one answer is revealed.</p>
+      </section>
+
+      <section id="panel-leaderboard" class="panel hidden">
+        <h2>Leaderboard</h2>
+        <ul id="admin-leaderboard"></ul>
+        <h3>Manual score override</h3>
+        <div id="score-overrides"></div>
+      </section>
+
+      <section id="panel-round2" class="panel hidden">
+        <h2>Round 2 — Final</h2>
+        <p id="r2-matchup"></p>
+        <p id="r2-question" class="question"></p>
+
+        <div id="r2-faceoff" class="block">
+          <h3>Face-off</h3>
+          <p class="muted">Who guessed the highest answer?</p>
+          <div class="row">
+            <button type="button" id="r2-face-a"></button>
+            <button type="button" id="r2-face-b"></button>
+          </div>
+        </div>
+
+        <div id="r2-play" class="block hidden">
+          <p id="r2-control"></p>
+          <p>Bank: <strong id="r2-bank">0</strong> · Strikes: <strong id="r2-strikes">0</strong></p>
+          <ul id="r2-answers" class="answer-admin"></ul>
+          <div class="row">
+            <button type="button" id="r2-strike" class="strike-btn">Mistake / Strike (X)</button>
+          </div>
+        </div>
+
+        <div id="r2-steal" class="block hidden">
+          <h3>Steal</h3>
+          <p class="muted">Opposing team gets one guess.</p>
+          <div class="row">
+            <button type="button" id="r2-steal-yes">Steal successful</button>
+            <button type="button" id="r2-steal-no">Steal failed</button>
+          </div>
+        </div>
+
+        <p id="r2-done" class="hidden muted">Round 2 resolved. Return to Leaderboard or open Finale on the public screen.</p>
+      </section>
+
+      <section id="panel-winner" class="panel hidden">
+        <h2>Finale</h2>
+        <p class="muted">The public screen shows the winning team celebration.</p>
+      </section>
+    </main>
+
+    <script type="module" src="/src/admin-app.js"></script>
+  </body>
+</html>
