@@ -56,7 +56,32 @@ This view is displayed to the audience and listens to state changes from the Adm
   * "Buzzer" (Strike/Mistake triggered).
   * Time ticking (Last 10 seconds of Round 1).
 
-## 5. Data Models (JSON Schemas)
+## 5. Visual reference (screenshots)
+
+Reference captures of the Admin control panel and Public (projector) views. Assets live under [`screenshots/`](screenshots/).
+
+### Admin — control panel
+
+| Screen | Preview |
+|--------|---------|
+| Setup | ![Admin — setup](screenshots/admin/setup.png) |
+| Setup (filled) | ![Admin — setup filled](screenshots/admin/setup-filled.png) |
+| Round 1 | ![Admin — round 1](screenshots/admin/round1.png) |
+| Round 2 | ![Admin — round 2](screenshots/admin/round2.png) |
+| Leaderboard | ![Admin — leaderboard](screenshots/admin/leaderboard.png) |
+| Finale | ![Admin — finale](screenshots/admin/finale.png) |
+
+### Public — projector view
+
+| Screen | Preview |
+|--------|---------|
+| Setup | ![Public — setup](screenshots/public/setup.png) |
+| Round 1 | ![Public — round 1](screenshots/public/round1.png) |
+| Round 2 | ![Public — round 2](screenshots/public/round2.png) |
+| Leaderboard | ![Public — leaderboard](screenshots/public/leaderboard.png) |
+| Finale | ![Public — finale](screenshots/public/finale.png) |
+
+## 6. Data Models (JSON Schemas)
 
 ### Question File Schema
 ```json
