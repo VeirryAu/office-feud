@@ -1,4 +1,5 @@
 export const R1_DURATION = 100;
+export const R1_MAX_STRIKES = 3;
 export const PARTICIPANT_COUNT = 42;
 export const TEAM_COUNT = 6;
 
@@ -41,6 +42,7 @@ export function defaultRound1() {
     timerRunning: false,
     completedTeams: [false, false, false, false, false, false],
     gaveUp: false,
+    strikes: 0,
   };
 }
 
@@ -76,6 +78,7 @@ export function mergeState(saved) {
   if (!saved || typeof saved !== 'object') return base;
   const r1 = { ...defaultRound1(), ...saved.round1 };
   if (!Array.isArray(r1.revealed)) r1.revealed = [...defaultRound1().revealed];
+  if (typeof r1.strikes !== 'number' || r1.strikes < 0) r1.strikes = 0;
   const r2 = { ...defaultRound2(), ...saved.round2 };
   if (!Array.isArray(r2.revealed)) r2.revealed = [...defaultRound2().revealed];
   return {

@@ -2,6 +2,7 @@ import {
   mergeState,
   defaultState,
   round1Set,
+  R1_MAX_STRIKES,
 } from './state.js';
 import { loadState, subscribeStorage } from './storage.js';
 import {
@@ -133,6 +134,17 @@ function renderRound1Board() {
   $('pub-r1-bar').style.width = `${pct}%`;
   $('pub-r1-clock').textContent = String(state.round1.timerRemaining);
   $('pub-r1-clock').classList.toggle('urgent', state.round1.timerRemaining <= 10);
+
+  const strikesEl = $('pub-r1-strikes');
+  if (strikesEl) {
+    const s = Math.min(R1_MAX_STRIKES, state.round1.strikes ?? 0);
+    strikesEl.innerHTML = [1, 2, 3]
+      .map(
+        (n) =>
+          `<span class="strike-dot ${n <= s ? 'on' : ''}">X</span>`
+      )
+      .join('');
+  }
 
   if (!set || !grid) return;
   grid.innerHTML = set.answers

@@ -10,6 +10,7 @@ import {
   round1AllRevealed,
   topTwoTeamIndices,
   R1_DURATION,
+  R1_MAX_STRIKES,
   defaultRound1,
   defaultRound2,
 } from './state.js';
@@ -154,6 +155,14 @@ function renderRound1 () {
     state.round1.revealed.some(Boolean) &&
     !state.round1.gaveUp;
   $('r1-giveup').disabled = !giveUpOk;
+
+  const strikes = Math.min(R1_MAX_STRIKES, state.round1.strikes ?? 0);
+  $('r1-strikes').textContent = String(strikes);
+  const r1StrikeBtn = $('r1-strike');
+  if (r1StrikeBtn) {
+    r1StrikeBtn.disabled =
+      state.round1.gaveUp || strikes >= R1_MAX_STRIKES;
+  }
 
   list.innerHTML = '';
   set.answers.forEach((a, i) => {
@@ -404,6 +413,15 @@ $('r1-reset').onclick = () => {
 $('r1-giveup').onclick = () => {
   stopR1Timer();
   state.round1.gaveUp = true;
+  persist();
+  render();
+};
+
+$('r1-strike').onclick = () => {
+  if (state.round1.gaveUp) return;
+  if ((state.round1.strikes ?? 0) >= R1_MAX_STRIKES) return;
+  state.round1.strikes = (state.round1.strikes ?? 0) + 1;
+  state.strikeNonce += 1;
   persist();
   render();
 };

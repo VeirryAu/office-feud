@@ -20,6 +20,7 @@ Using persistent storage in browser.
 * **Give Up Condition:** A "Give Up" button becomes active **only if**:
   1. The timer has reached at least 50 seconds (<= 50s remaining).
   2. The team has successfully revealed at least 1 answer.
+* **Maximum mistakes:** Each team may accumulate at most **3** mistakes (wrong guesses) during their Round 1 turn.
 
 ### Round 2: Final Round (Top 2 Teams)
 * **Structure:** The top 2 teams on the leaderboard advance to the Final Round. 1 single set of questions is used (total 100 points).

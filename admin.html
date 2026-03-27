@@ -59,11 +59,13 @@
           <button type="button" id="r1-giveup" disabled>Give up</button>
         </div>
         <p id="r1-scores-preview" class="muted"></p>
+        <p>Mistakes: <strong id="r1-strikes">0</strong> / 3</p>
         <ul id="r1-answers" class="answer-admin"></ul>
         <div class="row">
+          <button type="button" id="r1-strike" class="strike-btn">Mistake / Strike (X)</button>
           <button type="button" id="r1-finalize">Finish this team’s turn</button>
         </div>
-        <p class="muted">Give up unlocks when ≤50s remain and at least one answer is revealed.</p>
+        <p class="muted">Give up unlocks when ≤50s remain and at least one answer is revealed. Maximum 3 mistakes per turn.</p>
       </section>
 
       <section id="panel-leaderboard" class="panel hidden">
