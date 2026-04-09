@@ -1,7 +1,7 @@
 # Game Design Document: Office Feud Web App
 
 ## 1. Overview
-A web-based, interactive game show application inspired by "Family Feud," designed specifically for an office gathering. The game features a dual-view system (Admin Control Panel vs. Public Game View), automated team randomization, timer mechanics, and classic strike/steal rules. 
+A web-based, interactive game show application inspired by "Family 100," designed specifically for an office gathering. The game features a dual-view system (Admin Control Panel vs. Public Game View), automated team randomization, timer mechanics, and classic strike/steal rules. 
 
 Using persistent storage in browser.
 
@@ -16,7 +16,7 @@ Using persistent storage in browser.
 * **Structure:** 6 teams play sequentially. Each team gets 1 unique set of questions (6 sets total). Each set contains answers totaling exactly 100 base points.
 * **Timer:** 60-second countdown timer per team.
 * **Scoring:** Points are awarded for correct answers.
-* **Time Bonus:** If a team clears the board before time runs out, the remaining seconds are converted into bonus points (max 30 points). The timer stops automatically when the board is cleared so the bonus is preserved until you finish the turn.
+* **Time Bonus:** When you finish a team’s turn (unless they gave up), remaining seconds on the clock are added as bonus points (max 30). The timer stops automatically when the board is cleared so leftover time is preserved until you finish the turn.
 * **Give Up Condition:** A "Give Up" button becomes active **only if**:
   1. Half the round time or less remains on the clock (e.g. ≤30s on a 60s timer).
   2. The team has successfully revealed at least 1 answer.

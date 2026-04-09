@@ -8,9 +8,9 @@ import {
   round1Set,
   round1RevealedPoints,
   round1AllRevealed,
+  round1TimeBonus,
   topTwoTeamIndices,
   R1_DURATION,
-  R1_TIME_BONUS_MAX,
   R1_MAX_STRIKES,
   defaultRound1,
   defaultRound2,
@@ -143,13 +143,8 @@ function renderRound1 () {
   elQ.textContent = set.question;
   elTimer.textContent = String(state.round1.timerRemaining);
   const base = round1RevealedPoints(state);
-  const bonus =
-    !state.round1.gaveUp &&
-      round1AllRevealed(state) &&
-      state.round1.timerRemaining > 0
-      ? Math.min(R1_TIME_BONUS_MAX, state.round1.timerRemaining)
-      : 0;
-  elPrev.textContent = `Running total: ${base} pts${bonus ? ` + time bonus up to ${bonus}` : ''}`;
+  const bonus = round1TimeBonus(state);
+  elPrev.textContent = `Running total: ${base} pts${bonus ? ` + ${bonus} pts time bonus` : ''}`;
 
   const giveUpOk =
     state.round1.timerRemaining <= R1_DURATION / 2 &&
@@ -312,12 +307,7 @@ function initRound2State () {
 function finalizeR1Turn () {
   const ti = state.round1.activeTeamIndex;
   const base = round1RevealedPoints(state);
-  const bonus =
-    !state.round1.gaveUp &&
-      round1AllRevealed(state) &&
-      state.round1.timerRemaining > 0
-      ? Math.min(R1_TIME_BONUS_MAX, state.round1.timerRemaining)
-      : 0;
+  const bonus = round1TimeBonus(state);
   const add = base + bonus;
   state.teams = state.teams.map((t, i) =>
     i === ti ? { ...t, score: t.score + add } : t
