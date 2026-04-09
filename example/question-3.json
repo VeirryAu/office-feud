@@ -22,14 +22,14 @@
       "question": "Makanan atau minuman yang sering dipesan bareng di kantor pakai ojek daring?",
       "answers": [
         { "text": "Kopi (susu)", "points": 23 },
-        { "text": "Milk Tea/Matcha", "points": 19 },
+        { "text": "Milk Tea", "points": 19 },
         { "text": "Gorengan", "points": 15 },
         { "text": "McDonald / Fast Food", "points": 12 },
         { "text": "Martabak", "points": 10 },
         { "text": "Minuman boba", "points": 8 },
-        { "text": "Donut", "points": 6 },
+        { "text": "Nasi padang", "points": 6 },
         { "text": "Pizza", "points": 4 },
-        { "text": "Nasi Padang", "points": 3 }
+        { "text": "Donut", "points": 3 }
       ]
     },
     {
@@ -107,7 +107,7 @@
       { "text": "Dapat subsidi pemerintah", "points": 12 },
       { "text": "Ramah lingkungan", "points": 10 },
       { "text": "Bebas ganjil genap", "points": 8 },
-      { "text": "Minim biaya perawatan", "points": 6 },
+      { "text": "Bentuknya kekinian", "points": 6 },
       { "text": "Tarikan mesin halus", "points": 4 },
       { "text": "Ikut tren zaman", "points": 3 }
     ]
