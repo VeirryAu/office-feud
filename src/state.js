@@ -5,7 +5,7 @@ export const R1_MAX_STRIKES = 3;
 export const PARTICIPANT_COUNT = 42;
 export const TEAM_COUNT = 6;
 
-export function shuffle(arr) {
+export function shuffle (arr) {
   const a = [...arr];
   for (let i = a.length - 1; i > 0; i--) {
     const j = Math.floor(Math.random() * (i + 1));
@@ -14,14 +14,14 @@ export function shuffle(arr) {
   return a;
 }
 
-export function parseParticipants(text) {
+export function parseParticipants (text) {
   return text
     .split(/[\n,]+/)
     .map((s) => s.trim())
     .filter(Boolean);
 }
 
-export function buildTeams(names) {
+export function buildTeams (names) {
   const shuffled = shuffle(names);
   const teams = [];
   for (let t = 0; t < TEAM_COUNT; t++) {
@@ -36,7 +36,7 @@ export function buildTeams(names) {
   return teams;
 }
 
-export function defaultRound1() {
+export function defaultRound1 () {
   return {
     activeTeamIndex: 0,
     revealed: [false, false, false, false],
@@ -48,7 +48,7 @@ export function defaultRound1() {
   };
 }
 
-export function defaultRound2() {
+export function defaultRound2 () {
   return {
     teamIndices: [0, 1],
     faceoffWinner: null,
@@ -61,7 +61,7 @@ export function defaultRound2() {
   };
 }
 
-export function defaultState() {
+export function defaultState () {
   return {
     v: 1,
     participants: [],
@@ -75,7 +75,7 @@ export function defaultState() {
   };
 }
 
-export function mergeState(saved) {
+export function mergeState (saved) {
   const base = defaultState();
   if (!saved || typeof saved !== 'object') return base;
   const r1 = { ...defaultRound1(), ...saved.round1 };
@@ -94,14 +94,14 @@ export function mergeState(saved) {
   };
 }
 
-export function round1Set(state) {
+export function round1Set (state) {
   const q = state.questions?.round1;
   if (!q) return null;
   const idx = state.round1.activeTeamIndex;
   return q[idx] ?? null;
 }
 
-export function round1RevealedPoints(state) {
+export function round1RevealedPoints (state) {
   const set = round1Set(state);
   if (!set) return 0;
   return set.answers.reduce(
@@ -110,25 +110,25 @@ export function round1RevealedPoints(state) {
   );
 }
 
-export function round1AllRevealed(state) {
+export function round1AllRevealed (state) {
   const set = round1Set(state);
   if (!set) return false;
   return set.answers.every((_, i) => state.round1.revealed[i]);
 }
 
-export function round1TimeBonus(state) {
+export function round1TimeBonus (state) {
   if (!round1AllRevealed(state)) return 0;
   return Math.min(R1_TIME_BONUS_MAX, state.round1.timerRemaining);
 }
 
-export function topTwoTeamIndices(teams) {
+export function topTwoTeamIndices (teams) {
   const ranked = teams
     .map((t, i) => ({ i, score: t.score }))
     .sort((a, b) => b.score - a.score);
   return [ranked[0].i, ranked[1].i];
 }
 
-export function validateQuestions(data) {
+export function validateQuestions (data) {
   if (!data?.round1 || !Array.isArray(data.round1) || data.round1.length !== 6)
     return 'round1 must be an array of 6 question sets';
   for (let s = 0; s < 6; s++) {

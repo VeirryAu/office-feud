@@ -1,0 +1,115 @@
+{
+  "round1": [
+    {
+      "setId": 1,
+      "assignedTeam": "Team 1",
+      "question": "Barang yang wajib dibawa karyawan saat tugas lapangan atau survei nasabah?",
+      "answers": [
+        { "text": "Jaket", "points": 23 },
+        { "text": "Jas hujan", "points": 19 },
+        { "text": "Buku catatan", "points": 15 },
+        { "text": "Pulpen", "points": 12 },
+        { "text": "Casan portabel", "points": 10 },
+        { "text": "Botol minum", "points": 8 },
+        { "text": "Kartu identitas", "points": 6 },
+        { "text": "Kacamata hitam", "points": 4 },
+        { "text": "Uang pas", "points": 3 }
+      ]
+    },
+    {
+      "setId": 2,
+      "assignedTeam": "Team 2",
+      "question": "Makanan atau minuman yang sering dipesan bareng di kantor pakai ojek daring?",
+      "answers": [
+        { "text": "Kopi susu", "points": 23 },
+        { "text": "Mie pedas", "points": 19 },
+        { "text": "Gorengan", "points": 15 },
+        { "text": "Ayam geprek", "points": 12 },
+        { "text": "Martabak", "points": 10 },
+        { "text": "Minuman boba", "points": 8 },
+        { "text": "Nasi padang", "points": 6 },
+        { "text": "Piza", "points": 4 },
+        { "text": "Seblak", "points": 3 }
+      ]
+    },
+    {
+      "setId": 3,
+      "assignedTeam": "Team 3",
+      "question": "Kelakuan nasabah yang paling bikin pusing petugas penagih cicilan?",
+      "answers": [
+        { "text": "Pura-pura tidak di rumah", "points": 23 },
+        { "text": "Nomor telepon tidak aktif", "points": 19 },
+        { "text": "Janji bayar besok terus", "points": 15 },
+        { "text": "Lebih galak dari penagih", "points": 12 },
+        { "text": "Pindah rumah diam-diam", "points": 10 },
+        { "text": "Alasan uangnya terpakai", "points": 8 },
+        { "text": "Motor sudah dijual lagi", "points": 6 },
+        { "text": "Menangis minta waktu", "points": 4 },
+        { "text": "Lupa punya cicilan", "points": 3 }
+      ]
+    },
+    {
+      "setId": 4,
+      "assignedTeam": "Team 4",
+      "question": "Reaksi orang saat pertama kali mencoba mengendarai motor listrik?",
+      "answers": [
+        { "text": "Kaget karena tidak ada suara", "points": 23 },
+        { "text": "Kaget tarikannya kencang", "points": 19 },
+        { "text": "Bingung cara menyalakan", "points": 15 },
+        { "text": "Senyum kegirangan", "points": 12 },
+        { "text": "Mencari letak knalpot", "points": 10 },
+        { "text": "Takut tersengat listrik", "points": 8 },
+        { "text": "Bingung pakai gigi mundur", "points": 6 },
+        { "text": "Terus melihat layar baterai", "points": 4 },
+        { "text": "Merasa motornya ringan", "points": 3 }
+      ]
+    },
+    {
+      "setId": 5,
+      "assignedTeam": "Team 5",
+      "question": "Syarat pengajuan cicilan yang paling sering lupa dibawa nasabah?",
+      "answers": [
+        { "text": "Kartu Keluarga", "points": 23 },
+        { "text": "KTP pasangan", "points": 19 },
+        { "text": "Slip gaji", "points": 15 },
+        { "text": "Surat keterangan kerja", "points": 12 },
+        { "text": "Bukti bayar listrik", "points": 10 },
+        { "text": "Mutasi rekening bank", "points": 8 },
+        { "text": "Buku nikah", "points": 6 },
+        { "text": "KTP penjamin", "points": 4 },
+        { "text": "Surat domisili", "points": 3 }
+      ]
+    },
+    {
+      "setId": 6,
+      "assignedTeam": "Team 6",
+      "question": "Apa yang dilakukan karyawan kalau internet kantor tiba-tiba mati?",
+      "answers": [
+        { "text": "Tanya ke teknisi", "points": 23 },
+        { "text": "Pakai kuota pribadi", "points": 19 },
+        { "text": "Main gim komputer", "points": 15 },
+        { "text": "Ngobrol dengan teman", "points": 12 },
+        { "text": "Tidur siang sebentar", "points": 10 },
+        { "text": "Keluar beli jajan", "points": 8 },
+        { "text": "Merapikan meja", "points": 6 },
+        { "text": "Tanya teman di grup", "points": 4 },
+        { "text": "Pulang lebih cepat", "points": 3 }
+      ]
+    }
+  ],
+  "round2": {
+    "assignedTeam": "Top 2 Teams",
+    "question": "Alasan utama orang memilih motor listrik dibanding motor bensin?",
+    "answers": [
+      { "text": "Hemat biaya isi daya", "points": 23 },
+      { "text": "Pajak sangat murah", "points": 19 },
+      { "text": "Tidak berisik", "points": 15 },
+      { "text": "Dapat subsidi pemerintah", "points": 12 },
+      { "text": "Ramah lingkungan", "points": 10 },
+      { "text": "Bebas ganjil genap", "points": 8 },
+      { "text": "Bentuknya kekinian", "points": 6 },
+      { "text": "Tarikan mesin halus", "points": 4 },
+      { "text": "Ikut tren zaman", "points": 3 }
+    ]
+  }
+}

@@ -1,0 +1,115 @@
+{
+  "round1": [
+    {
+      "setId": 1,
+      "assignedTeam": "Team 1",
+      "question": "Kegiatan karyawan saat istirahat makan siang?",
+      "answers": [
+        { "text": "Makan di kantin", "points": 23 },
+        { "text": "Tidur siang", "points": 19 },
+        { "text": "Main media sosial", "points": 15 },
+        { "text": "Ngopi atau merokok", "points": 12 },
+        { "text": "Gosip", "points": 10 },
+        { "text": "Main gim", "points": 8 },
+        { "text": "Nonton film", "points": 6 },
+        { "text": "Ke minimarket", "points": 4 },
+        { "text": "Tetap bekerja", "points": 3 }
+      ]
+    },
+    {
+      "setId": 2,
+      "assignedTeam": "Team 2",
+      "question": "Alasan nasabah telat bayar cicilan motor?",
+      "answers": [
+        { "text": "Belum gajian", "points": 23 },
+        { "text": "Lupa tanggal bayar", "points": 19 },
+        { "text": "Ada kebutuhan darurat", "points": 15 },
+        { "text": "Aplikasi gangguan", "points": 12 },
+        { "text": "Sedang di luar kota", "points": 10 },
+        { "text": "Motor masuk bengkel", "points": 8 },
+        { "text": "Menunggu transferan", "points": 6 },
+        { "text": "Sedang sakit", "points": 4 },
+        { "text": "Kartu ATM hilang", "points": 3 }
+      ]
+    },
+    {
+      "setId": 3,
+      "assignedTeam": "Team 3",
+      "question": "Barang di meja kantor yang sering dipinjam tapi lupa dikembalikan?",
+      "answers": [
+        { "text": "Pulpen", "points": 23 },
+        { "text": "Korek api", "points": 19 },
+        { "text": "Kabel casan", "points": 15 },
+        { "text": "Gunting", "points": 12 },
+        { "text": "Cekrekan", "points": 10 },
+        { "text": "Kabel data", "points": 8 },
+        { "text": "Botol minum", "points": 6 },
+        { "text": "Kertas catatan", "points": 4 },
+        { "text": "Sendok makan", "points": 3 }
+      ]
+    },
+    {
+      "setId": 4,
+      "assignedTeam": "Team 4",
+      "question": "Kekhawatiran orang saat baru pakai motor listrik?",
+      "answers": [
+        { "text": "Kehabisan baterai", "points": 23 },
+        { "text": "Takut kesetrum saat banjir", "points": 19 },
+        { "text": "Harga baterai mahal", "points": 15 },
+        { "text": "Susah cari tempat cas", "points": 12 },
+        { "text": "Kurang cepat", "points": 10 },
+        { "text": "Bengkel resmi sedikit", "points": 8 },
+        { "text": "Harga jual turun", "points": 6 },
+        { "text": "Suara mesin terlalu sepi", "points": 4 },
+        { "text": "Bagasi kecil", "points": 3 }
+      ]
+    },
+    {
+      "setId": 5,
+      "assignedTeam": "Team 5",
+      "question": "Tanda-tanda karyawan yang mau keluar dari kantor?",
+      "answers": [
+        { "text": "Sering cuti mendadak", "points": 23 },
+        { "text": "Bawa pulang barang", "points": 19 },
+        { "text": "Angkat telepon di luar", "points": 15 },
+        { "text": "Pulang selalu tepat waktu", "points": 12 },
+        { "text": "Perbarui profil kerja", "points": 10 },
+        { "text": "Lebih diam saat rapat", "points": 8 },
+        { "text": "Pakaian lebih rapi", "points": 6 },
+        { "text": "Cari lowongan kerja", "points": 4 },
+        { "text": "Tidak peduli target", "points": 3 }
+      ]
+    },
+    {
+      "setId": 6,
+      "assignedTeam": "Team 6",
+      "question": "Isi grup obrolan kantor tanpa bos?",
+      "answers": [
+        { "text": "Gosip terbaru", "points": 23 },
+        { "text": "Bagi stiker lucu", "points": 19 },
+        { "text": "Jualan makanan", "points": 15 },
+        { "text": "Mengeluh soal kerjaan", "points": 12 },
+        { "text": "Patungan jenguk orang", "points": 10 },
+        { "text": "Ajak makan siang", "points": 8 },
+        { "text": "Info diskon", "points": 6 },
+        { "text": "Bahas olahraga", "points": 4 },
+        { "text": "Tanya siapa yang masuk", "points": 3 }
+      ]
+    }
+  ],
+  "round2": {
+    "assignedTeam": "Top 2 Teams",
+    "question": "Momen paling bikin panik saat di kantor?",
+    "answers": [
+      { "text": "Lupa simpan dokumen", "points": 23 },
+      { "text": "Dipanggil bos", "points": 19 },
+      { "text": "Salah kirim pesan", "points": 15 },
+      { "text": "Ketahuan tidur", "points": 12 },
+      { "text": "Laptop ketumpahan minum", "points": 10 },
+      { "text": "Telat rapat penting", "points": 8 },
+      { "text": "Data penting hilang", "points": 6 },
+      { "text": "Ingin buang air", "points": 4 },
+      { "text": "Alarm kendaraan bunyi", "points": 3 }
+    ]
+  }
+}
