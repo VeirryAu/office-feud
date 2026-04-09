@@ -1,3 +1,12 @@
+:root {
+  --brand: #103b6e;
+  --brand-mid: #0c2f58;
+  --brand-deep: #061525;
+  --text: #ffffff;
+  --text-muted: rgba(255, 255, 255, 0.7);
+  --accent: #ffffff;
+}
+
 *,
 *::before,
 *::after {
@@ -7,15 +16,15 @@
 body {
   margin: 0;
   font-family: system-ui, -apple-system, Segoe UI, Roboto, sans-serif;
-  background: #1a1d23;
-  color: #e8eaef;
+  background: var(--brand-deep);
+  color: var(--text);
   line-height: 1.45;
 }
 
 .top {
   padding: 1rem 1.25rem;
-  border-bottom: 1px solid #333;
-  background: #12141a;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.12);
+  background: var(--brand-mid);
 }
 
 .top h1 {
@@ -26,11 +35,11 @@ body {
 .hint {
   margin: 0;
   font-size: 0.9rem;
-  color: #9aa3b2;
+  color: var(--text-muted);
 }
 
 .hint a {
-  color: #7cb7ff;
+  color: var(--accent);
 }
 
 .phases {
@@ -38,27 +47,27 @@ body {
   flex-wrap: wrap;
   gap: 0.5rem;
   padding: 0.75rem 1.25rem;
-  background: #22262e;
+  background: rgba(16, 59, 110, 0.35);
 }
 
 .phases button {
   padding: 0.45rem 0.9rem;
-  border: 1px solid #444;
+  border: 1px solid rgba(255, 255, 255, 0.18);
   border-radius: 6px;
-  background: #2c313c;
+  background: rgba(16, 59, 110, 0.55);
   color: inherit;
   cursor: pointer;
   font-size: 0.9rem;
 }
 
 .phases button:hover {
-  background: #363c4a;
+  background: rgba(16, 59, 110, 0.85);
 }
 
 .phases button.active {
-  border-color: #f4c025;
-  background: #3d3518;
-  color: #ffe566;
+  border-color: var(--accent);
+  background: var(--brand);
+  color: var(--accent);
 }
 
 main {
@@ -89,8 +98,8 @@ main {
 textarea {
   padding: 0.6rem;
   border-radius: 6px;
-  border: 1px solid #444;
-  background: #12141a;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  background: var(--brand-deep);
   color: inherit;
   font: inherit;
 }
@@ -106,15 +115,15 @@ textarea {
 button {
   padding: 0.45rem 0.85rem;
   border-radius: 6px;
-  border: 1px solid #555;
-  background: #2c313c;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  background: rgba(16, 59, 110, 0.65);
   color: inherit;
   cursor: pointer;
   font: inherit;
 }
 
 button:hover:not(:disabled) {
-  background: #3a4150;
+  background: var(--brand);
 }
 
 button:disabled {
@@ -129,13 +138,13 @@ button.danger {
 
 .status {
   font-size: 0.9rem;
-  color: #8f9aac;
+  color: var(--text-muted);
 }
 
 .question {
   font-size: 1.05rem;
   font-weight: 600;
-  color: #c5d0e0;
+  color: rgba(255, 255, 255, 0.92);
 }
 
 .timer-row .timer {
@@ -143,11 +152,11 @@ button.danger {
   font-variant-numeric: tabular-nums;
   min-width: 3rem;
   font-weight: 700;
-  color: #f4c025;
+  color: var(--accent);
 }
 
 .muted {
-  color: #8f9aac;
+  color: var(--text-muted);
   font-size: 0.88rem;
 }
 
@@ -178,7 +187,7 @@ button.danger {
 .answer-admin .proj-hint {
   font-size: 0.8rem;
   font-weight: 400;
-  color: #8f9aac;
+  color: var(--text-muted);
 }
 
 .answer-admin .toggle.on {
@@ -209,8 +218,8 @@ button.danger {
   width: 4.5rem;
   padding: 0.25rem;
   border-radius: 4px;
-  border: 1px solid #444;
-  background: #12141a;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  background: var(--brand-deep);
   color: inherit;
 }
 
@@ -228,8 +237,8 @@ button.danger {
 .setup-roster {
   margin: 1rem 0;
   padding: 0.75rem 1rem;
-  background: #12141a;
-  border: 1px solid #333;
+  background: var(--brand-deep);
+  border: 1px solid rgba(255, 255, 255, 0.12);
   border-radius: 8px;
 }
 
@@ -237,7 +246,7 @@ button.danger {
   margin: 0 0 0.65rem;
   font-size: 0.95rem;
   font-weight: 600;
-  color: #f4c025;
+  color: var(--accent);
 }
 
 .setup-roster-team {
@@ -249,9 +258,9 @@ button.danger {
 .setup-roster-team strong {
   display: block;
   margin-bottom: 0.15rem;
-  color: #7cb7ff;
+  color: var(--accent);
 }
 
 .setup-roster-members {
-  color: #b8c0cc;
+  color: var(--text-muted);
 }
